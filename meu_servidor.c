@@ -40,6 +40,8 @@ const char* get_mime_type(const char *filename) {
     if (_stricmp(ext, "css") == 0) return "text/css";
     if (_stricmp(ext, "json") == 0) return "application/json";
     if (_stricmp(ext, "ico") == 0) return "image/x-icon";
+    if (_stricmp(ext, "c") == 0) return "text/plain";
+
     
     return "application/octet-stream";
 }
@@ -53,7 +55,7 @@ char* create_directory_listing(const char *dirpath, const char *request_path) {
              "<!DOCTYPE html>\n"
              "<html>\n"
              "<head>\n"
-             "    <title>Index of %s</title>\n"
+             "    <title>Index %s</title>\n"
              "    <style>\n"
              "        body { font-family: Arial, sans-serif; margin: 40px; }\n"
              "        h1 { color: #333; }\n"
@@ -65,7 +67,7 @@ char* create_directory_listing(const char *dirpath, const char *request_path) {
              "    </style>\n"
              "</head>\n"
              "<body>\n"
-             "    <h1>Index of %s</h1>\n"
+             "    <h1>Index %s</h1>\n"
              "    <ul>\n", 
              request_path, request_path);
     
